@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  mysqldb:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "demonstration"
+    ports:
+      - "3306:3306"
+#    volumes:
+#      - "/tmp/volume/mysql:/var/lib/mysql"
+    networks:
+      - mysql-network
+
+  adminer:
+    image: adminer
+    ports:
+      - "8010:8080"
+    networks:
+      - mysql-network
+
+  sonarqube:
+    image: sonarqube:7.9-community
+    ports:
+      - "9000:9000"
+    networks:
+      - mysql-network
+
+networks:
+  mysql-network:
+    driver: bridge

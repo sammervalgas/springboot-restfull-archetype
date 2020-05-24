@@ -1,0 +1,44 @@
+# Datasource
+spring:
+  datasource:
+    driver-class-name: 'com.mysql.cj.jdbc.Driver'
+    url: 'jdbc:mysql://localhost:3306/demonstration'
+    username: 'root'
+    password: 'root'
+  jpa:
+    database-platform: 'org.hibernate.dialect.MySQL5Dialect'
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: 'false'
+        format_sql: 'true'
+
+# JWT
+auth:
+  jwt:
+    use_by_default: 'true'
+    secret: '$2y$10$h6y0Win8zXDeahOlKEp0ru6ITMIDGsNADh9uG9ViKu4Z7qhuXIavq'
+    expiration:
+      day: 86400000
+
+#Swagger
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+info:
+  app:
+    name: "@project.name@"
+    version: "@project.version@"
+
+# Amostra de Login de Usuário da api
+login:
+  user: 'user'
+  email: 'user@mail.com'
+  pass: '1234'
