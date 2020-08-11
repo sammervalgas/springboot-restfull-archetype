@@ -10,12 +10,11 @@
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
-    <packaging>war</packaging>
     <description>Spring Boot Restfull Project</description>
 
     <properties>
         <java.version>1.8</java.version>
-        <start-class>br.com.svalgas.RestApplication</start-class>
+        <start-class>${groupId}.RestApplication</start-class>
     </properties>
 
     <dependencies>
@@ -126,18 +125,16 @@
 
     <build>
         <finalName>${artifactId}</finalName>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                </plugin>
-                <plugin>
-                    <groupId>org.sonarsource.scanner.maven</groupId>
-                    <artifactId>sonar-maven-plugin</artifactId>
-                    <version>3.4.0.905</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.4.0.905</version>
+            </plugin>
+        </plugins>
     </build>
 </project>
